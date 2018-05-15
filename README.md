@@ -7,24 +7,6 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-**Note:** Replace ```Ivan Kolodii``` ```ivankolodii``` ```https://github.com/ivankolodii``` ```ivan@tenantcloud.com``` ```tenantcloud``` ```laravel-http-logger``` ```Logger of all http requests with useful information``` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md) and [composer.json](composer.json) files, then delete this line. You can run `$ php prefill.php` in the command line to make all replacements at once. Delete the file prefill.php as well.
-
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
-
-## Structure
-
-If any of the following are applicable to your project, then the directory structure should follow industry best practices by being named the following.
-
-```
-bin/        
-config/
-src/
-tests/
-vendor/
-```
-
-
 ## Install
 
 Via Composer
@@ -85,7 +67,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [link-packagist]: https://packagist.org/packages/tenantcloud/laravel-http-logger
 [link-travis]: https://travis-ci.org/tenantcloud/laravel-http-logger
 [link-scrutinizer]: https://scrutinizer-ci.com/g/tenantcloud/laravel-http-logger/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/tenantcloud/laravel-http-logger
+[link-code-quality]: https://scrutinizer-ci.com/g/tenantcloud/g
 [link-downloads]: https://packagist.org/packages/tenantcloud/laravel-http-logger
 [link-author]: https://github.com/ivankolodii
 [link-contributors]: ../../contributors
