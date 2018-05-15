@@ -23,7 +23,7 @@ TenantCloud\LaravelHttpLogger\Middleware\HttpLoggerMiddleware::class
 
 Publish config
 ```bash
-php artisan vendor:publish --provider="TenantCloud\LaravelHttpLogger\TenantCloud\LaravelHttpLogger" --tag="config"
+php artisan vendor:publish --provider="TenantCloud\LaravelHttpLogger\LaravelHttpLoggerServiceProvider" --tag="config"
 ```
 
 
