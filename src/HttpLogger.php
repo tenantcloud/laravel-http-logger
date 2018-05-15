@@ -62,7 +62,6 @@ class HttpLogger implements HttpLoggerContract
 	/**
 	 * @param Request $request
 	 * @return mixed|void
-	 * @todo add filtering inside objects
 	 */
 	public function handleRequest(Request $request)
 	{
@@ -79,7 +78,7 @@ class HttpLogger implements HttpLoggerContract
 			'http_referer' => $request->header('Referer'),
 			'http_user_agent' => $request->header('User-Agent'),
 			'http_x_forwarded_for' => $request->header('X-Forwarded-For'),
-			'request_body' => $request->except(config('http-logger.except')),
+			'request_body' => $this->sanitize($request->all()),
 			'time_local' => $request->server('REQUEST_TIME')
 		];
 
@@ -119,6 +118,32 @@ class HttpLogger implements HttpLoggerContract
 		} else {
 			// If disabled then send it directly
 			$this->driver->fire($this->getData());
+		}
+	}
+
+	/**
+	 * Sanitize selected fields recursively
+	 *
+	 * @param array $data
+	 * @return array
+	 */
+	private function sanitize(array $data): array
+	{
+		array_walk_recursive($data, [$this, 'sanitize_helper']);
+
+		return $data;
+	}
+
+	/**
+	 * Helper method for array_walk_recursive
+	 * Replaces certain values with asterisks
+	 *
+	 * @param $value
+	 * @param $key
+	 */
+	private function sanitize_helper(&$value, $key) {
+		if (in_array($key, config('http-logger.except'))) {
+			$value = '[filtered]:' . str_repeat("*", strlen($value));
 		}
 	}
 }

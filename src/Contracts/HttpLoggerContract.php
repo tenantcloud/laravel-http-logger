@@ -17,7 +17,7 @@ interface HttpLoggerContract
 	 * @param Request $request
 	 * @return mixed
 	 */
-	public function handleRequest(Request $request) ;
+	public function handleRequest(Request $request);
 
 	/**
 	 * @param Response $response

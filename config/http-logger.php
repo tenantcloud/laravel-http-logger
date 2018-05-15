@@ -12,7 +12,7 @@ return [
 	 * \TenantCloud\LaravelHttpLogger\Drivers\DefaultDriver::class
 	 * \TenantCloud\LaravelHttpLogger\Drivers\ExternalDriver::class
 	 */
-	'default' => \TenantCloud\LaravelHttpLogger\Drivers\DefaultDriver::class,
+	'default' => \TenantCloud\LaravelHttpLogger\Drivers\ExternalDriver::class,
 
 	/**
 	 * Available params: 'get', 'post', 'put', 'patch', 'delete' etc.
