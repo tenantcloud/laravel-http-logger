@@ -65,20 +65,20 @@ class HttpLogger implements HttpLoggerContract
 	 */
 	public function handleRequest(Request $request)
 	{
-		$files = array_map(function (UploadedFile $file) {
-			return $file->path();
-		}, iterator_to_array($request->files));
+//		$files = array_map(function (UploadedFile $file) {
+//			return $file->path();
+//		}, iterator_to_array($request->files));
 
 		$data = [
 			'user_id' => auth()->id(),
 			'remote_addr' => $request->ip(),
 			'method' => strtolower($request->getMethod()),
 			'uri' => $request->getPathInfo(),
-			'files' => $files,
+//			'files' => $files,
 			'http_referer' => $request->header('Referer'),
 			'http_user_agent' => $request->header('User-Agent'),
 			'http_x_forwarded_for' => $request->header('X-Forwarded-For'),
-			'request_body' => $this->sanitize($request->all()),
+			'request_body' => $this->sanitize($request->input()),
 			'time_local' => $request->server('REQUEST_TIME')
 		];
 
@@ -142,7 +142,7 @@ class HttpLogger implements HttpLoggerContract
 	 * @param $key
 	 */
 	private function sanitize_helper(&$value, $key) {
-		if (in_array($key, config('http-logger.except'))) {
+		if (is_string($key) && in_array($key, config('http-logger.except'))) {
 			$value = '[filtered]:' . str_repeat("*", strlen($value));
 		}
 	}
