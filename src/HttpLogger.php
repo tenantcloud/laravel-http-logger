@@ -71,7 +71,7 @@ class HttpLogger implements HttpLoggerContract
 		}, iterator_to_array($request->files));
 
 		$data = [
-			'user_id' => $request->user() ? $request->user()->id : null,
+			'user_id' => auth()->id(),
 			'remote_addr' => $request->ip(),
 			'method' => strtolower($request->getMethod()),
 			'uri' => $request->getPathInfo(),
