@@ -1,5 +1,5 @@
 {
-    "name": "TenantCloud/LaravelHttpLogger",
+    "name": "tenantcloud/laravel-http-logger",
     "type": "library",
     "description": "Logger of all http requests with useful information",
     "keywords": [
