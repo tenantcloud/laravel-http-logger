@@ -65,16 +65,25 @@ class HttpLogger implements HttpLoggerContract
 	 */
 	public function handleRequest(Request $request)
 	{
-//		$files = array_map(function (UploadedFile $file) {
-//			return $file->path();
-//		}, iterator_to_array($request->files));
+		$files = $request->allFiles();
+
+		if ($files) {
+			$files = array_map(function (UploadedFile $file) {
+				return [
+					'path' => $file->path(),
+					'originalName' => $file->getClientOriginalName(),
+					'mimeType' => $file->getMimeType(),
+					'size' => $file->getSize()
+				];
+			}, $request->allFiles());
+		}
 
 		$data = [
 			'user_id' => auth()->id(),
 			'remote_addr' => $request->ip(),
 			'method' => strtolower($request->getMethod()),
 			'uri' => $request->getPathInfo(),
-//			'files' => $files,
+			'files' => $files,
 			'http_referer' => $request->header('Referer'),
 			'http_user_agent' => $request->header('User-Agent'),
 			'http_x_forwarded_for' => $request->header('X-Forwarded-For'),
