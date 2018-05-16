@@ -2,9 +2,6 @@
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
-[![Build Status][ico-travis]][link-travis]
-[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
-[![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
 ## Install
@@ -59,15 +56,9 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 [ico-version]: https://img.shields.io/packagist/v/tenantcloud/laravel-http-logger.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/tenantcloud/laravel-http-logger/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/tenantcloud/laravel-http-logger.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/tenantcloud/laravel-http-logger.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/tenantcloud/laravel-http-logger.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/tenantcloud/laravel-http-logger
-[link-travis]: https://travis-ci.org/tenantcloud/laravel-http-logger
-[link-scrutinizer]: https://scrutinizer-ci.com/g/tenantcloud/laravel-http-logger/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/tenantcloud/g
 [link-downloads]: https://packagist.org/packages/tenantcloud/laravel-http-logger
 [link-author]: https://github.com/ivankolodii
 [link-contributors]: ../../contributors
