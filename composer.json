@@ -23,7 +23,8 @@
         "guzzlehttp/guzzle": "~6.0"
     },
     "require-dev": {
-        "phpunit/phpunit" : ">=5.4.3",
+        "orchestra/testbench": "^3.6",
+        "phpunit/phpunit": ">=5.4.3",
         "squizlabs/php_codesniffer": "^2.3"
     },
     "autoload": {
@@ -33,7 +34,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "TenantCloud\\LaravelHttpLogger\\": "tests"
+            "Tests\\": "tests/"
         }
     },
     "scripts": {
