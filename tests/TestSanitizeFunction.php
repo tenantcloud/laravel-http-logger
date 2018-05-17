@@ -128,4 +128,18 @@ class TestSanitizeFunction extends TestCase
 		$this->assertEquals(Sanitization::SANITIZE_PREFIX . ':*****', array_get($result, 'password.password_confirmation.password_other.key.password_confirm'));
 		$this->assertEquals('not_sanitize', array_get($result, 'password.password_confirmation.password_other.key.not_sanitize'));
 	}
+
+	/**
+	 * @test
+	 */
+	public function it_should_sanitize_long_value()
+	{
+		$result = Sanitization::sanitize([
+			"isBase64" => true,
+			"password" => "string_that_should_be_longer_than_twenty_characters",
+			"type" => "6"
+		]);
+
+		$this->assertEquals(Sanitization::SANITIZE_PREFIX . ':' . str_repeat('*', 20), $result['password']);
+	}
 }

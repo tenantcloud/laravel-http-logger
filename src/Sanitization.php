@@ -16,6 +16,11 @@ class Sanitization
 	public const SANITIZE_PREFIX = '[filtered]';
 
 	/**
+	 * Value will be replaced with maximum characters of this number
+	 */
+	public const STRING_MAX_LENGTH = 20;
+
+	/**
 	 * Sanitize selected fields recursively
 	 *
 	 * @param array $data
@@ -39,10 +44,23 @@ class Sanitization
 		if (is_string($key)) {
 			foreach (config('http-logger.except') as $exceptKey) {
 				if (strpos($key, $exceptKey) !== false) {
-					$value = self::SANITIZE_PREFIX . ':' . str_repeat("*", strlen($value));
+					$value = self::SANITIZE_PREFIX . ':' . str_repeat("*", self::getStringLengthToSanitize($value));
 					break;
 				}
 			}
 		}
+	}
+
+	/**
+	 * Get length of value that should be sanitized
+	 *
+	 * @param $value
+	 * @return int
+	 */
+	public static function getStringLengthToSanitize($value):int
+	{
+		$strLength = strlen($value);
+
+		return ($strLength > self::STRING_MAX_LENGTH) ? self::STRING_MAX_LENGTH : $strLength;
 	}
 }
